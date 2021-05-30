@@ -1,0 +1,12 @@
+{
+  "name": "ignite_expo",
+  "displayName": "ignite_expo",
+  "expo": {
+    "name": "ignite_expo",
+    "slug": "ignite_expo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
