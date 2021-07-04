@@ -1,9 +1,9 @@
 {
-  "name": "ignite_expo",
-  "displayName": "ignite_expo",
+  "name": "goFinance",
+  "displayName": "goFinance",
   "expo": {
-    "name": "ignite_expo",
-    "slug": "ignite_expo",
+    "name": "goFinance",
+    "slug": "goFinance",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

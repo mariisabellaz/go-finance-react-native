@@ -1,19 +1,46 @@
+import 'react-native-gesture-handler';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from "react-native";
+import {ThemeProvider} from 'styled-components';
+import {
+    useFonts,
+    Poppins_500Medium,
+    Poppins_400Regular,
+    Poppins_700Bold,
+    Poppins_300Light_Italic
+} from '@expo-google-fonts/poppins';
+import AppLoading from 'expo-app-loading';
+
+import {DefaultTheme} from './src/theme';
+import {AuthProvider, useAuth} from "./src/hooks/auth";
+
+import Routes from './src/routes';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
+
+    const [fontsLoaded] = useFonts({
+        Poppins_500Medium,
+        Poppins_400Regular,
+        Poppins_700Bold,
+        Poppins_300Light_Italic
+    });
+
+    const { userStorageLoading } = useAuth();
+
+    if (!fontsLoaded || userStorageLoading) {
+        return <AppLoading/>
+    }
+
+    return (
+        <ThemeProvider theme={DefaultTheme}>
+            <StatusBar barStyle="light-content"/>
+            <AuthProvider>
+                <Routes/>
+            </AuthProvider>
+        </ThemeProvider>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
