@@ -6,5 +6,9 @@ Utilize o **yarn** ou o **npm install** para instalar as dependências do projet
 Em seguida, inicie o projeto.
 
 ```cl
+yarn install
+```
+
+```cl
 expo start
 ```
